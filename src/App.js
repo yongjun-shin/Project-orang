@@ -5,6 +5,7 @@ import {ReactComponent as Age} from './svg/age.svg';
 import {ReactComponent as Name} from './svg/name.svg';
 import {ReactComponent as Email} from './svg/email.svg';
 import {ReactComponent as Password} from './svg/password.svg';
+import {ReactComponent as Woman} from './svg/woman.svg';
 
 function Header(props){
   const changeState = (event) => {
@@ -82,6 +83,24 @@ function Nav(props){
   }
 
   return navi;
+}
+
+function About_hist(props) {
+  const histText = props.hist.split('\n').map((line, index) => (
+    <p key={index} style={{marginTop:'0px', marginBottom:'10px'}}>{'·'} {line}</p>
+  ));
+
+  return (
+    <div class='about_hist'>
+      <div class='first'>
+        <span style={{fontSize:'25px', fontWeight:500}}>{props.year}</span>
+        <div class='texts'>
+          {histText}
+        </div>
+      </div>
+      <hr style={{marginTop:'27px'}}/>
+    </div>
+  );
 }
 
 function Main(props){
@@ -172,6 +191,55 @@ function Main(props){
         </form>
       </div>
       )
+  }
+  else if (props.state == 'ABOUT') {
+    content = (
+      <div class='about_cont' style={{marginTop:'103px', fontFamily:'Montserrat'}}>
+        <div class='about1'>
+          <img src='/img/about.jpg' class='img'/>
+          <div class='texts'>
+            <p style={{fontWeight:'bold', fontSize:'25px'}}>About ORANG <span style={{color:'#FF920D'}}>&</span> ORANG</p>
+            <p style={{marginTop:'-20px', fontWeight:'500', fontSize:'15px'}}> <span style={{fontWeight:'bold', fontSize:'20px'}}>·</span> 우리는 효율적이고 경제적인 멤버십 서비스를 통해 스타트업과 중소기업 부문이 사업을 발전시킬 수 있도록 지원합니다.</p>
+            <p style={{fontWeight:'bold'}}>We have 3 Visions</p>
+            <div class='vision'>
+              <p>· DEVELOPMENT</p>
+              <p>· CONNECTION</p>
+              <p>· COLLABORATION</p>
+            </div>
+          </div>
+        </div>
+        <div class='about2'>
+          <div>
+          <p style={{fontWeight: 500, fontSize:'35px', color:'#FF920D', marginBottom:'20px'}}>History</p>
+          <hr style={{border:'1px solid #FAA237'}}/>
+          <About_hist year={'2019'} hist={'Florida International Colleage'+ '\n' +'Osceola Country, FL'+ '\n' +'Grenoble Delegation Program 05'}></About_hist>
+          <About_hist year={'2018'} hist={'Invest in Grenoble-Alpes'+'\n'+'Grenoble Delegation Program 04'}></About_hist>
+          <About_hist year={'2017'} hist={'LAURUS Colleage'+'\n'+'Grenoble Delegation Program 03'}></About_hist>
+          <About_hist year={'2016'} hist={'Sunn Zamm Trade'+'\n'+'Grenoble Delegation Program 02'}></About_hist>
+          <About_hist year={'2015'} hist={'University at Hawai'+'\n'+ 'MWC Delegation Program' +'\n'+'Grenoble Delegation Program 01'}></About_hist>
+          <About_hist year={'2014'} hist={'Florida International Colleage'+'\n'+'AEPI'}></About_hist>
+          </div>
+        </div>
+        <div class='about3'>
+          <Woman style={{width:'262px', height:'262px', marginRight:'20px'}}/>
+          <div class='texts'>
+            <p style={{fontSize:'25px', marginTop:'0px', marginBottom:'0px'}}>양혜원</p>
+            <p style={{color:'#FF920D', fontSize:'20px', marginTop:'5px'}}>&nbsp;&nbsp;· CEO</p>
+            <p style={{width:'332px', height:'111px', fontSize:'15px', marginTop:'18px', fontFamily:'Noto Serif KR'}}>CEO이자 설립자.<br/>프랑스 그르노블 알프스의 인베스트에서 이사, 미국 플로리다 주 오세올라 카운티에서 서울에 기반을 둔 한국 사업 개발 매니저로 일하고 있습니다.배경과 전 세계적인 네트워킹을 통해, 그녀는 G2G와 B2B를 이끌고 창의적인 프로젝트를 개발합니다.</p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+  else if (props.state == 'BUSINESS') {
+    content = (
+      <div>BUSINESS</div>
+    )
+  }
+  else if (props.state == 'MEMBERSHIP') {
+    content = (
+      <div>MEMBERSHIP</div>
+    )
   }
   return (
     <>{content}</>
