@@ -6,6 +6,9 @@ import {ReactComponent as Name} from './svg/name.svg';
 import {ReactComponent as Email} from './svg/email.svg';
 import {ReactComponent as Password} from './svg/password.svg';
 import {ReactComponent as Woman} from './svg/woman.svg';
+import {ReactComponent as Membership} from './svg/membership.svg';
+
+import CustomSwiper from './components/swiper.js';
 
 function Header(props){
   const changeState = (event) => {
@@ -100,6 +103,13 @@ function About_hist(props) {
       </div>
       <hr style={{marginTop:'27px'}}/>
     </div>
+  );
+}
+function Circle(props) {
+  return (
+    <svg>
+      <circle cx='425' cy='251' r='60' fill={props.color} />
+    </svg>
   );
 }
 
@@ -238,7 +248,27 @@ function Main(props){
   }
   else if (props.state == 'MEMBERSHIP') {
     content = (
-      <div>MEMBERSHIP</div>
+      <div class='membership'>
+        <div class='first'>
+          <svg style={{width: '214px', height: '208px', marginRight:'36px'}}>
+            <circle cx='60' cy='60' r='60' fill='#FF920D'/>
+            <circle cx='155' cy='88' r='60' fill='#FFE76B'/>
+            <circle cx='76' cy='148' r='60' fill='#FBB55F'/>
+          </svg>
+          <p style={{fontSize:'20px', width:'428px', height:'70px'}}><span style={{fontSize:'30px', fontWeight:800, color:'#FF920D'}}>ORANG & ORANG</span><br/>연간 멤버쉽에 가입하고 혜택을 공유하세요.</p>
+        </div>
+        <div class='second'>
+          <h1 style={{color:'#FF920D'}}>MEMBERSHIP <span style={{color:'#91908f'}}>TYPE</span></h1>
+          <CustomSwiper></CustomSwiper>
+        </div>
+        <div class='third'>
+          <Membership style={{width:'300px', height:'263px'}}/>
+          <div>
+            <p style={{width:'605px', fontSize:'14px', fontWeight:'540'}}>합리적인 가격, 효율적인 솔루션, 효과적인 네트워킹 우리는 연간 회원 서비스를 통해 가치를 연결합니다. ORANG&ORANG의 멤버가 되어 여러분의 영역을 더욱 확장하세요!<br/><br/>ORANG&ORANG 멤버십 서비스는 글로벌 진출을 희망하는 스타트업과 중소기업을 지원하기 위한 아이디어에서 출발했습니다. 당사의 멤버십 서비스를 통해 ORANG's Crew와 장/단기간 함께 할 수 있으며, 브랜드 아이덴티티를 정착시키고 협업 구조를 강화하는데 도움이 됩니다. <br/><br/>한국, 중국, 대만, 베트남, 싱가포르 등 아시아 국가, 프랑스, 이탈리아, 독일 등 유럽 국가, 북미 등 다양한 국가의 모든 회원들과 협업이 가능합니다.</p>
+            <p style={{fontSize:'18px', fontWeight:'bold'}}><spans style={{color:'#FF920D'}}>ORANG & ORANG</spans>과 함께 하면 비즈니스에 집중할 수 있습니다.</p>
+          </div>
+        </div>
+      </div>
     )
   }
   return (
